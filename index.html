@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wolf Alice – Don't delete the kisses</title>
+    <link rel="stylesheet" href="./app.css" />
+	<link rel="stylesheet" href="./nes.css" />
+  </head>
+<! –– audio control is sticky ––>
+  <body>
+  <div class="header" id="myHeader" style="text-align:center">
+  <audio id="player" controls>
+  <source src="delete_the_kisses.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+  </audio>
+  </div>
+
+<! –– album cover ––>
+<div class="nes-container is-rounded is-dark" id="album" style="text-align:center"> 
+
+	<a href= "https://www.wolfalice.co.uk/">
+	<img src="XOXO.jpg" alt="The heavy" width="200" height="200">
+	</a>
+
+<h2>Wolf Alice – Don't delete the kisses</h2>
+
+
+
+
+</div>
+
+
+
+
+
+  
+  <div id="drag-n-drop-quiz" ></div>
+    <script>
+      let questions = [];
+      questions[0] = [
+        '',
+        {
+          id: 1,
+          text: 'I see the signs of a lifetime,',
+          dragOrder: 2,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'you ´til I die',
+          dragOrder: 3,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'And I´m swiftly out,',
+          dragOrder: 1,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'Irish goodbye',
+          dragOrder: 1,
+          dropOrder: 4, // correct order after drop
+        },
+      ];
+       questions[1] = [
+         '',
+        {
+          id: 1,
+          text: 'What',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'if',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'it´s',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'not',
+          dragOrder: 4,
+          dropOrder: 4, // correct order after drop
+        },
+        {
+          id: 5,
+          text: 'meant',
+          dragOrder: 1,
+          dropOrder: 5, // correct order after drop
+        },
+        {
+          id: 6,
+          text: 'for me?',
+          dragOrder: 2,
+          dropOrder: 6, // correct order after drop
+        },
+		{
+          id: 7,
+          text: 'love...',
+          dragOrder: 2,
+          dropOrder: 7, // correct order after drop
+        },
+		{
+          id: 8,
+          text: 'What if it´s not meant for me?',
+          dragOrder: 2,
+          dropOrder: 8, // correct order after drop
+        },
+		{
+          id: 9,
+          text: 'love...',
+          dragOrder: 2,
+          dropOrder: 9, // correct order after drop
+        },
+		];
+		
+	questions[2] = [
+         '',
+        {
+          id: 1,
+          text: 'I´d like to get to know you',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'I´d like to take you out',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'We´d go to The Hail Mary',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+		id: 4,
+          text: 'And afterwards make out',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+		},
+		{
+          id: 5,
+          text: 'Instead, I´m typing you a message',
+          dragOrder: 4,
+          dropOrder: 5, // correct order after drop
+        },
+        {
+          id: 6,
+          text: 'That I know I´ll never send',
+          dragOrder: 1,
+          dropOrder: 6, // correct order after drop
+        },
+        {
+          id: 7,
+          text: 'Rewriting old excuses',
+          dragOrder: 2,
+          dropOrder: 7, // correct order after drop
+        },
+		{
+		id: 8,
+          text: 'Delete the kisses at the end',
+          dragOrder: 3,
+          dropOrder: 8, // correct order after drop
+		},
+		];
+		
+		questions[3] = [
+         '',
+        {
+          id: 1,
+          text: 'When I see you, the whole world reduces',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'To just that room',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'And then I remember and I´m shy',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+        {
+          id: 4,
+          text: 'That gossip´s eye will look too soon',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+        },
+		{
+          id: 5,
+          text: 'And then I´m trapped, overthinking',
+          dragOrder: 3,
+          dropOrder: 5, // correct order after drop
+        },
+		{
+          id: 6,
+          text: 'And yeah, probably self-doubt',
+          dragOrder: 3,
+          dropOrder: 6, // correct order after drop
+        },
+		{
+          id: 7,
+          text: 'You tell me to get over it',
+          dragOrder: 4,
+          dropOrder: 7, // correct order after drop
+        },
+        {
+          id: 8,
+          text: 'And to take you out',
+          dragOrder: 1,
+          dropOrder: 8, // correct order after drop
+        },
+      ];
+	  questions[4] = [
+         '',
+        {
+          id: 1,
+          text: 'But I can´t, I´m too scared',
+          dragOrder: 3,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'And here´s the night bus, I have to go',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'And the doors are closing, and you were waving',
+          dragOrder: 4,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+		id: 4,
+          text: 'And I like you, and I´ll never let it show',
+          dragOrder: 2,
+          dropOrder: 4, // correct order after drop
+		},
+		{
+          id: 5,
+          text: 'And you won´t wait, and maybe I won´t mind',
+          dragOrder: 3,
+          dropOrder: 5, // correct order after drop
+        },
+        {
+          id: 6,
+          text: 'I work better on my own',
+          dragOrder: 1,
+          dropOrder: 6, // correct order after drop
+        },
+        {
+          id: 7,
+          text: 'And now I´m home, a little bit drunk',
+          dragOrder: 4,
+          dropOrder: 7, // correct order after drop
+        },
+		{
+		id: 8,
+          text: 'And I ask myself',
+          dragOrder: 2,
+          dropOrder: 8, // correct order after drop
+		},
+		];
+		questions[5] = [
+         '',
+        {
+          id: 1,
+          text: 'What',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'if',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'it´s',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'not',
+          dragOrder: 4,
+          dropOrder: 4, // correct order after drop
+        },
+        {
+          id: 5,
+          text: 'meant',
+          dragOrder: 1,
+          dropOrder: 5, // correct order after drop
+        },
+        {
+          id: 6,
+          text: 'for me?',
+          dragOrder: 2,
+          dropOrder: 6, // correct order after drop
+        },
+		{
+          id: 7,
+          text: 'love...',
+          dragOrder: 2,
+          dropOrder: 7, // correct order after drop
+        },
+		{
+          id: 8,
+          text: 'What if it´s not meant for me?',
+          dragOrder: 2,
+          dropOrder: 8, // correct order after drop
+        },
+		{
+          id: 9,
+          text: 'love...',
+          dragOrder: 2,
+          dropOrder: 9, // correct order after drop
+        },
+		];
+	  questions[6] = [
+        '',
+        {
+          id: 1,
+          text: 'A few days pass since I last saw you',
+          dragOrder: 2,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'And you´ve taken over my mind',
+          dragOrder: 3,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'I´m retelling jokes you made that made me laugh',
+          dragOrder: 1,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+          id: 4,
+          text: 'Pretending that they´re mine',
+          dragOrder: 1,
+          dropOrder: 4, // correct order after drop
+        },
+		{
+          id: 5,
+          text: 'I wanna tell the whole world about you',
+          dragOrder: 3,
+          dropOrder: 5, // correct order after drop
+        },
+		{
+          id: 6,
+          text: 'I think that that´s a sign',
+          dragOrder: 3,
+          dropOrder: 6, // correct order after drop
+        },
+		{
+          id: 7,
+          text: 'I´m losing self-control and it´s you',
+          dragOrder: 3,
+          dropOrder: 6, // correct order after drop
+        },
+		{
+          id: 8,
+          text: 'It really is, 1000 times',
+          dragOrder: 3,
+          dropOrder: 6, // correct order after drop
+        },
+      ];
+	  questions[7] = [
+         '',
+        {
+          id: 1,
+          text: 'I look at your picture and I smile',
+          dragOrder: 3,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'How awful´s that? I´m like a teenage girl',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'I might as well write all over my notebook',
+          dragOrder: 4,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+		id: 4,
+          text: 'That you rock my world',
+          dragOrder: 2,
+          dropOrder: 4, // correct order after drop
+		},
+		{
+          id: 5,
+          text: 'But you do, you really do',
+          dragOrder: 3,
+          dropOrder: 5, // correct order after drop
+        },
+        {
+          id: 6,
+          text: 'You´ve turned me upside down',
+          dragOrder: 1,
+          dropOrder: 6, // correct order after drop
+        },
+        {
+          id: 7,
+          text: 'And that´s okay, I´ll let it happen',
+          dragOrder: 4,
+          dropOrder: 7, // correct order after drop
+        },
+		{
+		id: 8,
+          text: '´Cause I like having you around',
+          dragOrder: 2,
+          dropOrder: 8, // correct order after drop
+		},
+		];
+	 questions[8] = [
+         '',
+        {
+          id: 1,
+          text: 'I´m electric, a romantic cliché',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'Yeah, they really are all true',
+          dragOrder: 1,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'When we catch eyes at that stupid party',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+		id: 4,
+          text: 'I know exactly what to do',
+          dragOrder: 3,
+          dropOrder: 4, // correct order after drop
+		},
+		{
+          id: 5,
+          text: 'I´ll take your hand, and we will leave',
+          dragOrder: 4,
+          dropOrder: 5, // correct order after drop
+        },
+        {
+          id: 6,
+          text: 'French exits from me and you',
+          dragOrder: 2,
+          dropOrder: 6, // correct order after drop
+        },
+		{
+		  id: 7,
+          text: 'And now I´m home, a little bit drunk',
+          dragOrder: 3,
+          dropOrder: 7, // correct order after drop
+		},
+		{
+		  id: 8,
+          text: 'Some things don´t change, and I know now',
+          dragOrder: 3,
+          dropOrder: 8, // correct order after drop
+		},
+		];
+		questions[9] = [
+         '',
+        {
+          id: 1,
+          text: 'Me and you were meant to be',
+          dragOrder: 4,
+          dropOrder: 1, // correct order after drop
+        },
+        {
+          id: 2,
+          text: 'In love',
+          dragOrder: 3,
+          dropOrder: 2, // correct order after drop
+        },
+        {
+          id: 3,
+          text: 'Me and you were meant to be',
+          dragOrder: 2,
+          dropOrder: 3, // correct order after drop
+        },
+		{
+		  id: 4,
+          text: 'In love',
+          dragOrder: 1,
+          dropOrder: 4, // correct order after drop
+		},
+		{
+		  id: 5,
+          text: 'Me and you',
+          dragOrder: 1,
+          dropOrder: 4, // correct order after drop
+		},
+		{
+		  id: 6,
+          text: 'I see the signs of a lifetime, you ´til I die',
+          dragOrder: 1,
+          dropOrder: 4, // correct order after drop
+		},
+		];
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>
